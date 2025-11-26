@@ -191,6 +191,7 @@
 
   .material-icons {
     font-size: 20px;
+    color: #fff;
   }
 
   &:hover {
@@ -296,7 +297,8 @@
 
 .topbar__role {
   font-size: 0.72rem;
-  color: #000;
+  color: greenyellow;
+  font-weight: bold;
 }
 
 .topbar__profile-arrow {
