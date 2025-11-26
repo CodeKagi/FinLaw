@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,22 +8,11 @@ import { trigger, transition, style, animate } from '@angular/animations';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   standalone: false,
-  
+
   animations: [
     trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(10px)' }),
-        animate(
-          '250ms ease-out',
-          style({ opacity: 1, transform: 'translateY(0)' })
-        ),
-      ]),
-      transition(':leave', [
-        animate(
-          '200ms ease-in',
-          style({ opacity: 0, transform: 'translateY(-10px)' })
-        ),
-      ]),
+      transition(':enter', [style({ opacity: 0, transform: 'translateY(10px)' }), animate('250ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))]),
+      transition(':leave', [animate('200ms ease-in', style({ opacity: 0, transform: 'translateY(-10px)' }))]),
     ]),
   ],
 })
@@ -34,7 +22,10 @@ export class RegisterComponent {
   hideConfirmPassword = true;
   isSubmitting = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+  ) {
     this.form = this.fb.group(
       {
         fullName: ['', Validators.required],
@@ -45,7 +36,7 @@ export class RegisterComponent {
       },
       {
         validators: this.passwordsMatchValidator,
-      }
+      },
     );
   }
 
@@ -77,4 +68,3 @@ export class RegisterComponent {
     this.router.navigate(['/login']);
   }
 }
-

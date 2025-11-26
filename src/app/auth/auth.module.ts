@@ -13,15 +13,19 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { RegisterComponent } from './register/register.component';
 
-
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, TranslateModule, AuthRouting, FormsModule, LanguageSelectorComponent,
-      MatFormFieldModule,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    AuthRouting,
+    FormsModule,
+    LanguageSelectorComponent,
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-     MatIconModule
-    
+    MatIconModule,
   ],
   declarations: [LoginComponent, LogoutComponent, RegisterComponent],
 })

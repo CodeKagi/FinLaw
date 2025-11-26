@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
- // adjust path if needed
+// adjust path if needed
 import { environment } from 'src/environments/environment';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AuthenticationService } from '../services/authentication.service';
@@ -14,15 +14,10 @@ import { trigger, transition, style, animate } from '@angular/animations';
   styleUrls: ['./login.component.scss'],
   standalone: false, // keep as you added
 
-    animations: [
+  animations: [
     trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(10px)' }),
-        animate('250ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
-      ]),
-      transition(':leave', [
-        animate('200ms ease-in', style({ opacity: 0, transform: 'translateY(-10px)' })),
-      ]),
+      transition(':enter', [style({ opacity: 0, transform: 'translateY(10px)' }), animate('250ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))]),
+      transition(':leave', [animate('200ms ease-in', style({ opacity: 0, transform: 'translateY(-10px)' }))]),
     ]),
   ],
 })
@@ -40,7 +35,7 @@ export class LoginComponent {
     private readonly _router: Router,
     private readonly _route: ActivatedRoute,
     private readonly _authService: AuthenticationService,
-    private readonly _fb: FormBuilder
+    private readonly _fb: FormBuilder,
   ) {
     this.form = this._fb.group({
       username: ['', Validators.required],
@@ -84,12 +79,7 @@ export class LoginComponent {
         next: (res) => {
           this.isSubmitting = false;
           if (res) {
-            this._router
-              .navigate(
-                [this._route.snapshot.queryParams['redirect'] || '/dashboard'],
-                { replaceUrl: true }
-              )
-              .then(() => console.log('Navigated to dashboard'));
+            this._router.navigate([this._route.snapshot.queryParams['redirect'] || '/dashboard'], { replaceUrl: true }).then(() => console.log('Navigated to dashboard'));
           }
         },
         error: (error) => {
@@ -100,8 +90,7 @@ export class LoginComponent {
       });
   }
 
-goToRegister(): void {
-  this._router.navigate(['/register']);
-}
-
+  goToRegister(): void {
+    this._router.navigate(['/register']);
+  }
 }

@@ -19,7 +19,7 @@ if (environment.production) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-     provideAnimations(),
+    provideAnimations(),
     // provideZoneChangeDetection is required for Angular's zone.js
     provideZoneChangeDetection({ eventCoalescing: true }),
 

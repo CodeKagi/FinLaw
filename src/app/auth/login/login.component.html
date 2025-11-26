@@ -3,19 +3,16 @@
     <!-- LEFT PANEL (WELCOME / IMAGE AREA) -->
     <div class="login-card__left">
       <div class="brand">
-
         <span class="brand-name">
           <img src="/images/logo.png" alt="FinLaw Logo" class="brand-logo" />
         </span>
       </div>
 
       <div class="welcome-text">
-        <h2>Nice to see you again</h2><br /><br />
+        <h2>Nice to see you again</h2>
+        <br /><br />
         <h1>WELCOME BACK</h1>
-        <p>
-        Manage your clients, documents, and workflows from one secure portal.
-Streamline your compliance and administration with FinLaw.
-        </p>
+        <p>Manage your clients, documents, and workflows from one secure portal. Streamline your compliance and administration with FinLaw.</p>
       </div>
     </div>
 
@@ -23,9 +20,7 @@ Streamline your compliance and administration with FinLaw.
     <div class="login-card__right">
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
         <h2>Login Account</h2>
-        <p class="subtitle">
-          Please enter your credentials to access your dashboard.
-        </p>
+        <p class="subtitle">Please enter your credentials to access your dashboard.</p>
 
         <!-- Global error -->
         <div class="login-error" *ngIf="loginError">
@@ -37,64 +32,30 @@ Streamline your compliance and administration with FinLaw.
           <mat-label>Email ID</mat-label>
           <input matInput formControlName="username" />
 
-          <mat-error *ngIf="form.get('username')?.hasError('required') && form.get('username')?.touched">
-            Email is required
-          </mat-error>
+          <mat-error *ngIf="form.get('username')?.hasError('required') && form.get('username')?.touched"> Email is required </mat-error>
         </mat-form-field>
 
         <!-- Password -->
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Password</mat-label>
-          <input
-            matInput
-            [type]="hidePassword ? 'password' : 'text'"
-            formControlName="password"
-          />
-          <button
-            mat-icon-button
-            type="button"
-            matSuffix
-            (click)="hidePassword = !hidePassword"
-          >
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+          <button mat-icon-button type="button" matSuffix (click)="hidePassword = !hidePassword">
             <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
 
-          <mat-error *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched">
-            Password is required
-          </mat-error>
-          <mat-error *ngIf="form.get('password')?.hasError('invalid') && !form.get('password')?.hasError('required')">
-            Invalid username or password
-          </mat-error>
+          <mat-error *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched"> Password is required </mat-error>
+          <mat-error *ngIf="form.get('password')?.hasError('invalid') && !form.get('password')?.hasError('required')"> Invalid username or password </mat-error>
         </mat-form-field>
 
         <div class="form-options">
-          <mat-checkbox formControlName="rememberMe">
-            Keep me signed in
-          </mat-checkbox>
+          <mat-checkbox formControlName="rememberMe"> Keep me signed in </mat-checkbox>
 
-          <button
-            class="link-btn"
-            type="button"
-            (click)="goToRegister()"
-          >
-            New member? Register
-          </button>
-
-          
+          <button class="link-btn" type="button" (click)="goToRegister()">New member? Register</button>
         </div>
 
-        <button
-
-          class="login-btn"
-          type="submit"
-          [disabled]="form.invalid || isSubmitting"
-        >
-          <ng-container *ngIf="!isSubmitting; else loadingTpl">
-            Login
-          </ng-container>
-          <ng-template #loadingTpl>
-            Logging in...
-          </ng-template>
+        <button class="login-btn" type="submit" [disabled]="form.invalid || isSubmitting">
+          <ng-container *ngIf="!isSubmitting; else loadingTpl"> Login </ng-container>
+          <ng-template #loadingTpl> Logging in... </ng-template>
         </button>
       </form>
     </div>

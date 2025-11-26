@@ -19,9 +19,9 @@ const routes: Routes = [
     component: LogoutComponent,
     data: { title: marker('Logout') },
   },
-    {
+  {
     path: 'register',
-    component: RegisterComponent ,
+    component: RegisterComponent,
     data: { title: marker('register') },
   },
 ];

@@ -7,7 +7,7 @@
   padding: 2rem;
   // background: radial-gradient(circle at top, #bae6f3 0%, #4ba3c1 40%, #bae6f3 100%);
 
-   background: radial-gradient(circle at top, #bae6f3 0%, #fff 40%, #bae6f3 100%);
+  background: radial-gradient(circle at top, #bae6f3 0%, #fff 40%, #bae6f3 100%);
   opacity: 0.95;
 }
 
@@ -69,7 +69,6 @@
     img.brand-logo {
       margin: -2rem;
     }
-
   }
 }
 
@@ -89,14 +88,14 @@
     font-weight: 700;
     margin-bottom: 1.2rem;
     letter-spacing: 0.08em;
-      color: white;
+    color: white;
   }
 
   p {
     font-size: 0.9rem;
     line-height: 1.5;
     opacity: 0.9;
-     color: white;
+    color: white;
   }
 }
 
@@ -167,13 +166,11 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   align-self: flex-start;
-    background: #0c6fb3 !important;
-       color: #fff !important;
-       cursor: pointer;
+  background: #0c6fb3 !important;
+  color: #fff !important;
+  cursor: pointer;
 
   &:hover {
-
-      background: #0d8de8 !important;
+    background: #0d8de8 !important;
   }
 }
-
