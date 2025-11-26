@@ -1,4 +1,4 @@
-<div class="dashboard-layout" [class.sidebar-collapsed]="isSidebarCollapsed">
+<div class="dashboard-layout" [class.sidebar-collapsed]="isSidebarCollapsed" [class.sidebar-open]="isMobileSidebarOpen">
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar__header">
@@ -157,3 +157,5 @@
     </main>
   </div>
 </div>
+
+<div class="sidebar-backdrop" *ngIf="isMobileSidebarOpen" (click)="toggleSidebar()"></div>

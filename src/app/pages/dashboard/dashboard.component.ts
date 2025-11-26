@@ -10,9 +10,16 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: false,
 })
 export class DashboardComponent {
-  isSidebarCollapsed = false;
+  isSidebarCollapsed = false; // desktop behaviour
+  isMobileSidebarOpen = false; // mobile drawer
 
   toggleSidebar(): void {
-    this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    if (window.innerWidth <= 900) {
+      // mobile: open/close drawer
+      this.isMobileSidebarOpen = !this.isMobileSidebarOpen;
+    } else {
+      // desktop: shrink/expand sidebar
+      this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    }
   }
 }
