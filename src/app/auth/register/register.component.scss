@@ -1,0 +1,179 @@
+/* PAGE BACKGROUND – GRADIENT WITH YOUR COLOR */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  // background: radial-gradient(circle at top, #bae6f3 0%, #4ba3c1 40%, #bae6f3 100%);
+
+   background: radial-gradient(circle at top, #bae6f3 0%, #fff 40%, #bae6f3 100%);
+  opacity: 0.95;
+}
+
+/* CENTRED CARD */
+.login-card {
+  width: 100%;
+  max-width: 960px;
+  border-radius: 26px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  border: 2px solid #bae6f3;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+}
+
+/* LEFT BLUE PANEL (WELCOME AREA / IMAGE LATER) */
+.login-card__left {
+  padding: 2.5rem 2.5rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1a8ed1 0%, #0c6fb3 45%, #074f86 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  @media (max-width: 900px) {
+    display: none; // only show form on small screens
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+
+  .brand-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .brand-name {
+    text-transform: uppercase;
+    font-weight: 600;
+
+    img.brand-logo {
+      margin: -2rem;
+    }
+
+  }
+}
+
+.welcome-text {
+  max-width: 360px;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+    opacity: 0.9;
+    color: white;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.08em;
+      color: white;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.9;
+     color: white;
+  }
+}
+
+/* RIGHT WHITE PANEL – FORM */
+.login-card__right {
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+
+  @media (max-width: 600px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.login-form {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: left;
+
+  h2 {
+    margin: 0;
+    color: #0c6fb3;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    margin: 0.25rem 0 0.75rem;
+    font-size: 0.85rem;
+    color: #7b8191;
+  }
+}
+
+.form-field {
+  width: 100%;
+}
+
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+
+  .link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #0d8de8;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.login-btn {
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  padding: 0.65rem 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  align-self: flex-start;
+    background: #0c6fb3 !important;
+       color: #fff !important;
+       cursor: pointer;
+
+  &:hover {
+
+      background: #0d8de8 !important;
+  }
+}
+
