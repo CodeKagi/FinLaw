@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-boilerplate": {
+    "finlaw": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -19,7 +19,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/angular-boilerplate",
+            "outputPath": "dist/finlaw",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js", "@angular/localize/init", "reflect-metadata"],
@@ -69,10 +69,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-boilerplate:build:production"
+              "buildTarget": "finlaw:build:production"
             },
             "development": {
-              "buildTarget": "angular-boilerplate:build:development"
+              "buildTarget": "finlaw:build:development"
             }
           },
           "defaultConfiguration": "development"
