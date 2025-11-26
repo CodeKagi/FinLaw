@@ -12,8 +12,12 @@ import { HeaderComponent } from '@app/shell/components/header/header.component';
 import { PagesModule } from '@pages/pages.module';
 import { LanguageSelectorComponent } from '@app/i18n';
 
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
-  imports: [CommonModule, TranslateModule, AuthModule, RouterModule, HumanizePipe, FormsModule, PagesModule, LanguageSelectorComponent],
+  imports: [CommonModule, TranslateModule, AuthModule, RouterModule, HumanizePipe, FormsModule, PagesModule, LanguageSelectorComponent, MatMenuModule, MatButtonModule, MatIconModule],
   declarations: [ShellComponent, HeaderComponent, SidebarComponent],
 })
 export class ShellModule {}

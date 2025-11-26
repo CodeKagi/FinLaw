@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Shell } from '@app/shell/services/shell.service';
 import { DashboardComponent } from '@pages/dashboard/dashboard.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   Shell.childRoutes([
@@ -20,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), MatMenuModule, MatButtonModule, MatIconModule],
   exports: [RouterModule],
 })
 export class PagesRoutingModule {}

@@ -1,3 +1,159 @@
-<section class="main-container">
-  <h2 translate>Dashboard</h2>
-</section>
+<div class="dashboard-layout" [class.sidebar-collapsed]="isSidebarCollapsed">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar__header">
+      <div class="sidebar__avatar">
+        <img src="/images/logo.png" alt="FinLaw Logo" />
+      </div>
+      <div class="sidebar__brand" *ngIf="!isSidebarCollapsed">
+        <div class="sidebar__brand-name">FinLaw Portal</div>
+        <div class="sidebar__brand-sub">Workflow Suite</div>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <div class="sidebar__section-title" *ngIf="!isSidebarCollapsed">Main</div>
+
+      <button class="sidebar__item active">
+        <span class="sidebar__icon material-icons">dashboard</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Dashboard</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">people_alt</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Client Overview</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">person_add</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">New Client</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">school</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Learning Centre</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">assignment</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Leads</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">account_balance</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Finance</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">admin_panel_settings</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Admin</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">list_alt</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">My Lists</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">bar_chart</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Reports</span>
+      </button>
+
+      <button class="sidebar__item">
+        <span class="sidebar__icon material-icons">storefront</span>
+        <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Leads Marketplace</span>
+      </button>
+    </nav>
+
+    <div class="sidebar__footer" *ngIf="!isSidebarCollapsed">
+      <div class="sidebar__user">
+        <div class="sidebar__user-avatar">B</div>
+        <div class="sidebar__user-info">
+          <div class="sidebar__user-name">Bridgette</div>
+          <div class="sidebar__user-role">Agent</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN AREA -->
+  <div class="main">
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar__left">
+        <button class="icon-btn" type="button" (click)="toggleSidebar()">
+          <span class="material-icons">menu</span>
+        </button>
+        <h1 class="topbar__title">Dashboard</h1>
+      </div>
+
+      <div class="topbar__search">
+        <div class="search-box">
+          <span class="material-icons search-box__icon">search</span>
+          <input type="text" placeholder="Search clients, files, workflows..." class="search-box__input" />
+        </div>
+      </div>
+
+      <div class="topbar__right">
+        <button class="icon-btn" type="button">
+          <span class="material-icons">notifications</span>
+          <span class="badge"></span>
+        </button>
+
+        <button class="icon-btn" type="button">
+          <span class="material-icons">help_outline</span>
+        </button>
+
+        <!-- PROFILE MENU -->
+        <button mat-button class="topbar__profile-btn" [matMenuTriggerFor]="profileMenu">
+          <div class="topbar__avatar">BD</div>
+          <div class="topbar__profile-info">
+            <div class="topbar__name">Bridgette Debeta</div>
+            <div class="topbar__role">Online</div>
+          </div>
+          <mat-icon class="topbar__profile-arrow">expand_more</mat-icon>
+        </button>
+
+        <mat-menu #profileMenu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="content">
+      <section class="content__header">
+        <h2>Welcome to your FinLaw dashboard</h2>
+        <p>We’re setting up your widgets and workflows. Dashboard insights are coming soon.</p>
+      </section>
+
+      <section class="content__grid">
+        <div class="card card--placeholder">
+          <h3>Dashboard widgets</h3>
+          <p>Coming soon...</p>
+        </div>
+
+        <div class="card card--placeholder">
+          <h3>Client activity</h3>
+          <p>Coming soon...</p>
+        </div>
+
+        <div class="card card--placeholder">
+          <h3>Tasks & files</h3>
+          <p>Coming soon...</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>

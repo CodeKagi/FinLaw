@@ -1,0 +1,357 @@
+/* Layout background: soft blue/white gradient */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #bae6f3 0%, #ffffff 40%, #bae6f3 100%);
+  color: #1f2933;
+  transition: grid-template-columns 200ms ease;
+
+  &.sidebar-collapsed {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border-right: 1px solid #d1e5ee;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.75rem;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.25rem 1rem;
+  border-bottom: 1px solid #d1e5ee;
+}
+
+.sidebar__avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.sidebar__brand-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #135569;
+}
+
+.sidebar__brand-sub {
+  font-size: 0.75rem;
+  color: #4ba3c1;
+}
+
+.sidebar__nav {
+  flex: 1;
+  margin-top: 1rem;
+}
+
+.sidebar__section-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7b8794;
+  padding: 0 0.75rem 0.5rem;
+}
+
+.sidebar__item {
+  width: 100%;
+  border: none;
+  background: none;
+  color: #1f2933;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-bottom: 0.15rem;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+
+  .sidebar__icon {
+    font-size: 1.3rem;
+    width: 24px;
+    text-align: center;
+    color: #4ba3c1;
+  }
+
+  &:hover {
+    background: #e3f3f9;
+  }
+
+  &.active {
+    background: linear-gradient(90deg, #4ba3c1, #67bed9);
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(75, 163, 193, 0.4);
+
+    .sidebar__icon {
+      color: #ffffff;
+    }
+  }
+}
+
+.sidebar__footer {
+  border-top: 1px solid #d1e5ee;
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.25rem;
+}
+
+.sidebar__user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ba3c1, #67bed9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+}
+
+.sidebar__user-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.sidebar__user-role {
+  font-size: 0.75rem;
+  color: #7b8794;
+}
+
+/* MAIN */
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPBAR */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: radial-gradient(circle at top, #bae6f3 0%, #ffffff 60%, #bae6f3 100%);
+  border-bottom: 1px solid #d1e5ee;
+}
+
+.topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar__title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #135569;
+}
+
+.icon-btn {
+  border: none;
+  background: none;
+  color: #135569;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 120ms ease;
+
+  .material-icons {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: rgba(75, 163, 193, 0.15);
+  }
+
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3366;
+}
+
+/* SEARCH */
+
+.topbar__search {
+  flex: 1;
+  max-width: 480px;
+  padding: 0 1rem;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #d1e5ee;
+}
+
+.search-box__icon {
+  font-size: 18px;
+  color: #4ba3c1;
+}
+
+.search-box__input {
+  border: none;
+  background: transparent;
+  color: #1f2933;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  width: 100%;
+  outline: none;
+}
+
+/* PROFILE ON RIGHT */
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topbar__profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  text-transform: none;
+  line-height: 1;
+  color: #135569;
+
+  &:hover {
+    background: rgba(75, 163, 193, 0.12);
+  }
+}
+
+.topbar__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ba3c1, #67bed9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.topbar__profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.topbar__name {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.topbar__role {
+  font-size: 0.72rem;
+  color: #4ba3c1;
+}
+
+.topbar__profile-arrow {
+  font-size: 18px;
+  color: #4ba3c1;
+}
+
+/* CONTENT */
+
+.content {
+  padding: 1.5rem 1.5rem 2rem;
+  background: #ffffff;
+  flex: 1;
+}
+
+.content__header h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  color: #135569;
+}
+
+.content__header p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #7b8794;
+}
+
+.content__grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e4edf2;
+}
+
+.card--placeholder h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  color: #135569;
+}
+
+.card--placeholder p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #7b8794;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .dashboard-layout {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .topbar__search {
+    display: none;
+  }
+
+  .topbar__name {
+    display: none;
+  }
+}
