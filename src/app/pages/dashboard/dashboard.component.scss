@@ -3,7 +3,9 @@
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   min-height: 100vh;
-  background: radial-gradient(circle at top, #bae6f3 0%, #ffffff 40%, #bae6f3 100%);
+  //   background: radial-gradient(circle at top, #bae6f3 0%, #ffffff 40%, #bae6f3 100%);
+
+  background: radial-gradient(circle at top, #4ba3c1 0%, #4ba3c1 40%, #4ba3c1 100%);
   color: #1f2933;
   transition: grid-template-columns 200ms ease;
 
@@ -89,7 +91,12 @@
   }
 
   &:hover {
-    background: #e3f3f9;
+    background: linear-gradient(90deg, #4ba3c1, #67bed9);
+    border: 1px outline black;
+    color: #ffffff;
+    .sidebar__icon {
+      color: #ffffff;
+    }
   }
 
   &.active {
@@ -153,7 +160,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
-  background: radial-gradient(circle at top, #bae6f3 0%, #ffffff 60%, #bae6f3 100%);
+  background: radial-gradient(circle at top, #4ba3c1 0%, #4ba3c1 30%, #4ba3c1 70%);
   border-bottom: 1px solid #d1e5ee;
 }
 
@@ -166,13 +173,13 @@
 .topbar__title {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #135569;
+  color: #fff;
 }
 
 .icon-btn {
   border: none;
   background: none;
-  color: #135569;
+  color: #fff;
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -252,7 +259,7 @@
   border-radius: 999px;
   text-transform: none;
   line-height: 1;
-  color: #135569;
+  color: #fff;
 
   &:hover {
     background: rgba(75, 163, 193, 0.12);
@@ -276,21 +283,25 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  color: #ffffff;
+  margin-top: 5px;
 }
 
 .topbar__name {
   font-size: 0.85rem;
   font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 5px;
 }
 
 .topbar__role {
   font-size: 0.72rem;
-  color: #4ba3c1;
+  color: #000;
 }
 
 .topbar__profile-arrow {
   font-size: 18px;
-  color: #4ba3c1;
+  color: #ffffff;
 }
 
 /* CONTENT */
