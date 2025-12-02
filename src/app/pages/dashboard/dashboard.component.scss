@@ -77,11 +77,14 @@
   border-radius: 999px;
   cursor: pointer;
   font-size: 0.85rem;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid #4ba3c1;
+  font-weight: 600;
   transition:
     background 150ms ease,
     color 150ms ease,
     box-shadow 150ms ease;
+  text-decoration: none;
 
   .sidebar__icon {
     font-size: 1.3rem;
@@ -94,6 +97,9 @@
     background: linear-gradient(90deg, #4ba3c1, #67bed9);
     border: 1px outline black;
     color: #ffffff;
+    .sidebar__label {
+      color: #ffffff;
+    }
     .sidebar__icon {
       color: #ffffff;
     }
@@ -103,7 +109,9 @@
     background: linear-gradient(90deg, #4ba3c1, #67bed9);
     color: #ffffff;
     box-shadow: 0 6px 15px rgba(75, 163, 193, 0.4);
-
+    .sidebar__label {
+      color: #ffffff;
+    }
     .sidebar__icon {
       color: #ffffff;
     }
@@ -160,7 +168,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
-  background: radial-gradient(circle at top, #4ba3c1 0%, #4ba3c1 30%, #4ba3c1 70%);
+  background: radial-gradient(circle at top, #135569 0%, #135569 30%, #135569 70%);
   border-bottom: 1px solid #d1e5ee;
 }
 
@@ -310,7 +318,8 @@
 
 .content {
   padding: 1.5rem 1.5rem 2rem;
-  background: #ffffff;
+  // background: linear-gradient(135deg, #e1fbfb, #d5f9f9);
+  background: lightsteelblue;
   flex: 1;
 }
 
@@ -323,7 +332,8 @@
 .content__header p {
   margin: 0;
   font-size: 0.85rem;
-  color: #7b8794;
+  color: #000;
+  margin-bottom: 3rem;
 }
 
 .content__grid {
@@ -376,6 +386,7 @@
   background: rgba(15, 23, 42, 0.35);
   z-index: 15;
 }
+
 @media (max-width: 900px) {
   .dashboard-layout {
     grid-template-columns: 1fr; // no fixed sidebar column

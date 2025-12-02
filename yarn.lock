@@ -258,7 +258,7 @@
   optionalDependencies:
     lmdb "3.4.1"
 
-"@angular/cdk@^20.2.14", "@angular/cdk@20.2.14":
+"@angular/cdk@^20.2.14", "@angular/cdk@>=14.0.0", "@angular/cdk@20.2.14":
   version "20.2.14"
   resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-20.2.14.tgz"
   integrity sha512-7bZxc01URbiPiIBWThQ69XwOxVduqEKN4PhpbF2AAyfMc/W8Hcr4VoIJOwL0O1Nkq5beS8pCAqoOeIgFyXd/kg==
@@ -291,7 +291,7 @@
     yargs "18.0.0"
     zod "3.25.75"
 
-"@angular/common@^20.0.0 || ^21.0.0", "@angular/common@^20.1.2", "@angular/common@>= 20.0.0", "@angular/common@>=14.2.0", "@angular/common@>=16", "@angular/common@20.1.2":
+"@angular/common@^20.0.0 || ^21.0.0", "@angular/common@^20.1.2", "@angular/common@>= 20.0.0", "@angular/common@>=14.0.0", "@angular/common@>=14.2.0", "@angular/common@>=16", "@angular/common@20.1.2":
   version "20.1.2"
   resolved "https://registry.npmjs.org/@angular/common/-/common-20.1.2.tgz"
   integrity sha512-MQYP+4lvw81jBRknNYgIye7N36SD68SADUB7xO+7pF5+KbGundfmZkO29uWCnTBU86C4xU4DshlFVhzFK1lreQ==
@@ -319,7 +319,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^20.0.0", "@angular/core@^20.0.0 || ^21.0.0", "@angular/core@^20.1.2", "@angular/core@>= 20.0.0", "@angular/core@>=13", "@angular/core@>=14.2.0", "@angular/core@>=16", "@angular/core@>=17", "@angular/core@20.1.2":
+"@angular/core@^20.0.0", "@angular/core@^20.0.0 || ^21.0.0", "@angular/core@^20.1.2", "@angular/core@>= 20.0.0", "@angular/core@>=13", "@angular/core@>=14.0.0", "@angular/core@>=14.2.0", "@angular/core@>=16", "@angular/core@>=17", "@angular/core@20.1.2":
   version "20.1.2"
   resolved "https://registry.npmjs.org/@angular/core/-/core-20.1.2.tgz"
   integrity sha512-8jAvpkHoXHSH0HoqNVgPstSMGmC0oaYN93HW7K2rMRxj1Uhtahkeb/7/kfnj7yLi5FDfm98ofOFT4Lxzf2eZXQ==
@@ -2016,6 +2016,11 @@ chardet@^0.7.0:
   version "0.7.0"
   resolved "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
+
+"chart.js@^3.4.0 || ^4.0.0", chart.js@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.npmjs.org/chart.js/-/chart.js-3.9.1.tgz"
+  integrity sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==
 
 chokidar@^3.5.1:
   version "3.6.0"
@@ -4210,6 +4215,11 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash-es@^4.17.15:
+  version "4.17.21"
+  resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.2.tgz"
@@ -4626,6 +4636,14 @@ negotiator@0.6.3:
   version "0.6.3"
   resolved "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
+
+ng2-charts@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/ng2-charts/-/ng2-charts-4.1.1.tgz"
+  integrity sha512-iHwXDbmX86lfeH8VRcsaW2tJATsuAZo4kvvC/Yk2l35zOHjevja1qBvO6BAibiDazi9r9aS6ZRJOqWPsz1pP2w==
+  dependencies:
+    lodash-es "^4.17.15"
+    tslib "^2.3.0"
 
 node-addon-api@^6.1.0:
   version "6.1.0"

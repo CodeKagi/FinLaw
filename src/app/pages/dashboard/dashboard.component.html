@@ -1,3 +1,4 @@
+<!-- src/app/pages/dashboard/dashboard.component.html -->
 <div class="dashboard-layout" [class.sidebar-collapsed]="isSidebarCollapsed" [class.sidebar-open]="isMobileSidebarOpen">
   <!-- SIDEBAR -->
   <aside class="sidebar">
@@ -14,55 +15,65 @@
     <nav class="sidebar__nav">
       <div class="sidebar__section-title" *ngIf="!isSidebarCollapsed"></div>
 
-      <button class="sidebar__item active">
+      <!-- DASHBOARD -->
+      <a class="sidebar__item" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <span class="sidebar__icon material-icons">dashboard</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Dashboard</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- CLIENT OVERVIEW -->
+      <a class="sidebar__item" routerLink="/dashboard/overview" routerLinkActive="active">
         <span class="sidebar__icon material-icons">people_alt</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Client Overview</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- NEW CLIENT -->
+      <a class="sidebar__item" routerLink="/dashboard/new-client" routerLinkActive="active">
         <span class="sidebar__icon material-icons">person_add</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">New Client</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- LEARNING CENTRE -->
+      <a class="sidebar__item" routerLink="/dashboard/learning" routerLinkActive="active">
         <span class="sidebar__icon material-icons">school</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Learning Centre</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- LEADS -->
+      <a class="sidebar__item" routerLink="/dashboard/leads" routerLinkActive="active">
         <span class="sidebar__icon material-icons">assignment</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Leads</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- FINANCE -->
+      <a class="sidebar__item" routerLink="/dashboard/finance" routerLinkActive="active">
         <span class="sidebar__icon material-icons">account_balance</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Finance</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- ADMIN -->
+      <a class="sidebar__item" routerLink="/dashboard/admin" routerLinkActive="active">
         <span class="sidebar__icon material-icons">admin_panel_settings</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Admin</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- MY LISTS -->
+      <a class="sidebar__item" routerLink="/dashboard/lists" routerLinkActive="active">
         <span class="sidebar__icon material-icons">list_alt</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">My Lists</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- REPORTS -->
+      <a class="sidebar__item" routerLink="/dashboard/reports" routerLinkActive="active">
         <span class="sidebar__icon material-icons">bar_chart</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Reports</span>
-      </button>
+      </a>
 
-      <button class="sidebar__item">
+      <!-- LEADS MARKETPLACE -->
+      <a class="sidebar__item" routerLink="/dashboard/marketplace" routerLinkActive="active">
         <span class="sidebar__icon material-icons">storefront</span>
         <span class="sidebar__label" *ngIf="!isSidebarCollapsed">Leads Marketplace</span>
-      </button>
+      </a>
     </nav>
 
     <div class="sidebar__footer" *ngIf="!isSidebarCollapsed">
@@ -84,7 +95,7 @@
         <button class="icon-btn" type="button" (click)="toggleSidebar()">
           <span class="material-icons">menu</span>
         </button>
-        <h1 class="topbar__title">Dashboard</h1>
+        <!-- <h1 class="topbar__title">{{ pageTitle }}</h1> -->
       </div>
 
       <div class="topbar__search">
@@ -106,7 +117,6 @@
 
         <!-- PROFILE MENU -->
         <button mat-button class="topbar__profile-btn" [matMenuTriggerFor]="profileMenu">
-          <!-- <div class="topbar__avatar">BD</div> -->
           <div class="topbar__profile-info">
             <div class="topbar__name">Name Surname</div>
             <div class="topbar__role">Online</div>
@@ -134,25 +144,13 @@
     <!-- CONTENT -->
     <main class="content">
       <section class="content__header">
-        <h2>Welcome to your FinLaw dashboard</h2>
-        <p>We’re setting up your widgets and workflows. Dashboard insights are coming soon.</p>
+        <h2>{{ pageTitle }}</h2>
+        <p>{{ pageSubtitle }}</p>
       </section>
 
-      <section class="content__grid">
-        <div class="card card--placeholder">
-          <h3>Dashboard widgets</h3>
-          <p>Coming soon...</p>
-        </div>
-
-        <div class="card card--placeholder">
-          <h3>Client activity</h3>
-          <p>Coming soon...</p>
-        </div>
-
-        <div class="card card--placeholder">
-          <h3>Tasks & files</h3>
-          <p>Coming soon...</p>
-        </div>
+      <section>
+        <!-- Routed child pages will render here -->
+        <router-outlet></router-outlet>
       </section>
     </main>
   </div>

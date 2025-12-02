@@ -1,0 +1,94 @@
+<div class="dashboard-home">
+  <!-- TOP STATS -->
+  <div class="stats-row" role="region" aria-label="top statistics">
+    <mat-card class="stat-card" *ngFor="let s of stats">
+      <div class="stat-left">
+        <div class="stat-icon" [style.background]="s.color">
+          <mat-icon>{{ s.icon }}</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value">{{ s.value | number }}</div>
+          <div class="stat-label">{{ s.label }}</div>
+        </div>
+      </div>
+      <div class="stat-hint">{{ s.hint }}</div>
+    </mat-card>
+  </div>
+
+  <!-- MAIN GRID: big chart + two small side cards -->
+  <div class="main-grid">
+    <mat-card class="chart-card">
+      <div class="card-header">
+        <h3>Statistics</h3>
+        <button mat-icon-button aria-label="refresh"><mat-icon>refresh</mat-icon></button>
+      </div>
+
+      <!-- simple svg line chart placeholder -->
+      <div class="chart-area" role="img" aria-label="overview chart">
+        <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="lineChartType"> </canvas>
+      </div>
+
+      <div class="chart-footer">
+        <small>Overview for last 12 months</small>
+      </div>
+    </mat-card>
+
+    <div class="side-cards">
+      <mat-card class="mini-card" *ngFor="let m of miniCards" [style.border-left]="'4px solid ' + m.color">
+        <div class="mini-top">
+          <div class="mini-title">{{ m.title }}</div>
+          <div class="mini-value">{{ m.value }}</div>
+        </div>
+        <div class="mini-spark">
+          <!-- small visual indicator -->
+          <div class="spark" *ngFor="let p of m.spark" [style.height.%]="10 + p * 10"></div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- LOWER ROW: three small cards + board list -->
+  <div class="lower-row">
+    <div class="small-cards">
+      <mat-card class="small-stat">
+        <div class="small-value">5,456</div>
+        <div class="small-label">Statistics</div>
+        <mat-divider></mat-divider>
+        <div class="small-note">Compared to last week</div>
+      </mat-card>
+
+      <mat-card class="small-stat">
+        <div class="small-value">5,456</div>
+        <div class="small-label">Statistics</div>
+        <mat-divider></mat-divider>
+        <div class="small-note">Compared to last week</div>
+      </mat-card>
+
+      <mat-card class="small-stat">
+        <div class="small-value">5,456</div>
+        <div class="small-label">Statistics</div>
+        <mat-divider></mat-divider>
+        <div class="small-note">Compared to last week</div>
+      </mat-card>
+    </div>
+
+    <!-- Board / To-do list -->
+    <mat-card class="board-card">
+      <div class="board-header">
+        <h3>Tasks & items</h3>
+        <button mat-flat-button color="primary" class="btn-small">New</button>
+      </div>
+
+      <mat-list>
+        <mat-list-item *ngFor="let item of boardItems">
+          <div mat-line class="item-title">{{ item.title }}</div>
+          <div mat-line class="item-sub">
+            <span class="chip">{{ item.status }}</span>
+            <span class="when">{{ item.when }}</span>
+          </div>
+          <button mat-icon-button matTooltip="Open" aria-label="open"><mat-icon>open_in_new</mat-icon></button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+</div>
