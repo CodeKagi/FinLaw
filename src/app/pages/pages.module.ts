@@ -1,8 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatMenuModule } from '@angular/material/menu';
 import { PagesRoutingModule } from './pages-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+// material
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+import { NgChartsModule } from 'ng2-charts';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { ClientOverviewComponent } from './client-overview/client-overview.component';
 import { NewClientComponent } from './new-client/new-client.component';
 import { LearningCenterComponent } from './learning-center/learning-center.component';
@@ -12,22 +34,6 @@ import { AdminComponent } from './admin/admin.component';
 import { MyListsComponent } from './my-lists/my-lists.component';
 import { ReportsComponent } from './reports/reports.component';
 import { LeadsMarketplaceComponent } from './leads-marketplace/leads-marketplace.component';
-import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
-import { NgChartsModule } from 'ng2-charts';
-
-import { MatCardModule } from '@angular/material/card';
-
-import { MatListModule } from '@angular/material/list';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatTooltipModule } from '@angular/material/tooltip';
-
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -42,11 +48,13 @@ import { MatButtonModule } from '@angular/material/button';
     MyListsComponent,
     ReportsComponent,
     LeadsMarketplaceComponent,
-    DashboardHomeComponent,
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    // Material modules
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
@@ -54,12 +62,16 @@ import { MatButtonModule } from '@angular/material/button';
     MatListModule,
     MatDividerModule,
     MatTooltipModule,
-    NgChartsModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    // charts
+    NgChartsModule,
   ],
 })
 export class PagesModule {}

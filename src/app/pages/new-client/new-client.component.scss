@@ -1,31 +1,284 @@
-/* Under development notice */
-.under-dev-card {
-  padding: 1.4rem 1.8rem;
-  background: linear-gradient(180deg, #ffffff, #f7fafb);
-  border-left: 4px solid #135569;
-  border-radius: 10px;
+.page-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
 }
 
-.under-dev {
+.left-nav {
+  width: 260px;
+  min-width: 260px;
+  background: #f7f7f7;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.steps-list {
+  margin-bottom: 20px;
+}
+
+.step {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  padding: 6px 0;
+  cursor: default;
 }
 
-.under-dev__icon {
-  font-size: 36px;
-  color: #135569;
+.step .bullet {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #3f51b5;
+  color: #fff;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  margin-right: 10px;
 }
 
-.under-dev__text h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #135569;
+.step.active .bullet {
+  background: #4caf50; /* green */
 }
 
-.under-dev__text p {
-  margin: 2px 0 0 0;
+.main-area {
+  flex: 1;
+  padding: 10px;
+}
+
+.reminders {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 15px;
   font-size: 14px;
-  color: #457580;
+}
+
+/* Basic layout */
+.page-wrapper {
+  display: flex;
+  gap: 20px;
+}
+.left-nav {
+  width: 240px;
+}
+.main-area {
+  flex: 1;
+}
+
+/* Stepper + content spacing */
+.step-content {
+  padding: 12px 6px;
+}
+
+/* Grid layout (two columns for large personal area) */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 320px 1fr; /* left personal, bank, right personal */
+  gap: 16px;
+}
+.column {
+  padding: 8px 12px;
+}
+
+/* bank-block placed in the middle */
+.bank-block {
+  padding: 8px 12px;
+  background: transparent;
+}
+
+/* Products two-column area */
+.products-area {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.products-list {
+  flex: 0 0 46%;
+  max-width: 46%;
+}
+
+/* Right details column */
+.product-details {
+  flex: 1 1 54%;
+  max-width: 54%;
+}
+
+/* Each product list row */
+.product-row {
+  padding: 8px 6px;
+  display: block;
+}
+.product-checkbox {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+}
+.product-title {
+  margin-left: 8px;
+}
+.product-desc {
+  margin-left: 32px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-top: 4px;
+}
+
+/* product card styles */
+.product-card {
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+/* actions */
+.actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+/* validation hint */
+.error.hint {
+  color: #c62828;
+  margin-top: 8px;
+}
+
+/* small responsiveness */
+@media (max-width: 920px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .products-area {
+    flex-direction: column;
+  }
+  .products-list,
+  .product-details {
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+.payment-section {
+  padding: 12px;
+}
+
+.payment-item {
+  margin-bottom: 20px;
+}
+
+.quote-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.quote-table th,
+.quote-table td {
+  border: 1px solid #d6d6d6;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.summary {
+  background: #efefef;
+  font-weight: bold;
+}
+
+.payment-description {
+  margin-top: 20px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.payment-select-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.heading {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.product-title {
+  margin: 4px 0 8px 0;
+  font-size: 14px;
+}
+
+.pay-left,
+.pay-right {
+  width: 48%;
+}
+
+.payment-dropdown {
+  width: 100%;
+}
+
+.quote-title {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.quote-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.quote-table th,
+.quote-table td {
+  border: 1px solid #d9d9d9;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.summary-row {
+  background: #efefef;
+}
+
+.payment-description {
+  margin-top: 20px;
+  white-space: pre-wrap;
+  font-size: 14px;
+}
+
+// .step-warning {
+//   display: flex;
+//   align-items: center;
+//   gap: 8px;
+//   background: #fff8e1;
+//   border-left: 4px solid #ffb300;
+//   padding: 10px 12px;
+//   margin-bottom: 16px;
+//   font-size: 13px;
+//   color: #5f4b00;
+// }
+.confirm-summary {
+  display: grid;
+  gap: 16px;
+}
+
+.summary-card {
+  border-left: 4px solid #1976d2;
+  padding: 1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 24px;
+}
+
+.summary-list {
+  padding-left: 16px;
+}
+
+.confirm-title {
+  margin-bottom: 4px;
 }
