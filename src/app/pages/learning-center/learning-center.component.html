@@ -1,10 +1,57 @@
-<mat-card class="toolbar-card under-dev-card">
-  <div class="under-dev">
-    <mat-icon class="under-dev__icon">construction</mat-icon>
+<div class="learning-centre">
+  <!-- PAGE TITLE -->
+  <div class="page-header">
+    <h2>Learning Centre</h2>
+  </div>
 
-    <div class="under-dev__text">
-      <h3>Section Under Development</h3>
-      <p>This module is currently being built and will be available soon.</p>
+  <!-- TABS -->
+  <div class="tabs">
+    <button *ngFor="let tab of tabs" class="tab-btn" [class.active]="tab.key === activeTabKey" (click)="setActiveTab(tab.key)">
+      {{ tab.label }}
+    </button>
+  </div>
+
+  <!-- MAIN WHITE CARD -->
+  <div class="content-card">
+    <!-- SEARCH -->
+    <div class="search-card">
+      <mat-icon class="search-icon">search</mat-icon>
+      <input type="text" placeholder="Search for items..." [(ngModel)]="searchTerm" />
+    </div>
+
+    <!-- ITEMS GRID -->
+    <div class="items-grid">
+      <div class="item-card" *ngFor="let item of filteredItems">
+        <div class="item-title">
+          {{ item.title }}
+        </div>
+
+        <div class="item-actions">
+          <!-- PDF -->
+          <ng-container *ngIf="item.type === 'pdf'">
+            <span class="badge pdf">PDF</span>
+            <a class="icon-btn" [href]="item.url" download target="_blank">
+              <mat-icon>download</mat-icon>
+            </a>
+          </ng-container>
+
+          <!-- HTML -->
+          <ng-container *ngIf="item.type === 'html'">
+            <span class="badge html">HTML</span>
+            <a class="icon-btn" [href]="item.url" target="_blank">
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+          </ng-container>
+
+          <!-- EXTERNAL -->
+          <ng-container *ngIf="item.type === 'external'">
+            <span class="badge external">External URL</span>
+            <a class="icon-btn" [href]="item.url" target="_blank">
+              <mat-icon>link</mat-icon>
+            </a>
+          </ng-container>
+        </div>
+      </div>
     </div>
   </div>
-</mat-card>
+</div>

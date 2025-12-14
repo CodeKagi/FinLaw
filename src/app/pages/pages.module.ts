@@ -35,6 +35,8 @@ import { MyListsComponent } from './my-lists/my-lists.component';
 import { ReportsComponent } from './reports/reports.component';
 import { LeadsMarketplaceComponent } from './leads-marketplace/leads-marketplace.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -72,6 +74,7 @@ import { LeadsMarketplaceComponent } from './leads-marketplace/leads-marketplace
     MatCheckboxModule,
     // charts
     NgChartsModule,
+    FormsModule,
   ],
 })
 export class PagesModule {}

@@ -230,23 +230,6 @@ th.col-product {
   font-size: 22px;
 }
 
-// /* -------------------------
-//    Table polish: zebra, hover, transitions
-//    Paste inside .client-overview { ... }
-//    ------------------------- */
-
-// /* zebra rows (light alternating background) */
-// ::ng-deep .mat-mdc-table .mat-mdc-row:nth-child(odd) .mat-mdc-cell,
-// .table-wrap table tr:nth-child(odd) td.mat-cell {
-//   background: rgba(19,85,105,0.02); /* very light teal tint */
-// }
-
-// /* ensure footer row stays distinct (no zebra) */
-// ::ng-deep .mat-mdc-table .mat-mdc-footer-row .mat-mdc-footer-cell,
-// .table-wrap tr.totals-row td {
-//   background: rgba(19,85,105,0.06) !important;
-// }
-
 /* hover: lift + subtle background */
 ::ng-deep .mat-mdc-table .mat-mdc-row:hover .mat-mdc-cell,
 .table-wrap table tr:hover td.mat-cell {
@@ -260,40 +243,6 @@ th.col-product {
   transform: none !important;
   box-shadow: none !important;
 }
-
-// /* special columns: slightly stronger tint on body rows (but still subtle) */
-// ::ng-deep .mat-mdc-table .mat-mdc-cell.special,
-// .table-wrap td.special {
-//   background-color: rgba(19,85,105,0.04); /* light teal tint */
-//   transition: background-color 150ms ease;
-// }
-
-// /* when hovering a row, increase tint on special columns */
-// ::ng-deep .mat-mdc-table .mat-mdc-row:hover .mat-mdc-cell.special,
-// .table-wrap tr:hover td.special {
-//   background-color: rgba(19,85,105,0.08);
-//   color: #135569 !important;
-// }
-
-// /* subtle separators remain */
-// .table-wrap table td.mat-cell {
-//   border-bottom: 1px solid rgba(16,24,28,0.04);
-// }
-
-// /* small performance note: transitions on transform only for hover to keep it snappy */
-// ::ng-deep .mat-mdc-table .mat-mdc-row {
-//   transition: transform 150ms ease;
-// }
-
-// /* mobile adjustment: reduce hover effects on touch devices */
-// @media (hover: none) {
-//   ::ng-deep .mat-mdc-table .mat-mdc-row:hover .mat-mdc-cell,
-//   .table-wrap table tr:hover td.mat-cell {
-//     transform: none;
-//     box-shadow: none;
-//     background: transparent;
-//   }
-// }
 
 /* Under development notice */
 .under-dev-card {
