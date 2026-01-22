@@ -1,94 +1,207 @@
-<div class="dashboard-home">
-  <!-- TOP STATS -->
-  <div class="stats-row" role="region" aria-label="top statistics">
-    <mat-card class="stat-card" *ngFor="let s of stats">
-      <div class="stat-left">
-        <div class="stat-icon" [style.background]="s.color">
-          <mat-icon>{{ s.icon }}</mat-icon>
-        </div>
-        <div class="stat-info">
-          <div class="stat-value">{{ s.value | number }}</div>
-          <div class="stat-label">{{ s.label }}</div>
-        </div>
-      </div>
-      <div class="stat-hint">{{ s.hint }}</div>
-    </mat-card>
-  </div>
+<mat-accordion multi="true">
+  <!-- MY TODO LIST (OPEN BY DEFAULT) -->
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title> My To-Do List ({{ todos.length }}) </mat-panel-title>
+    </mat-expansion-panel-header>
 
-  <!-- MAIN GRID: big chart + two small side cards -->
-  <div class="main-grid">
-    <mat-card class="chart-card">
-      <div class="card-header">
-        <h3>Statistics</h3>
-        <button mat-icon-button aria-label="refresh"><mat-icon>refresh</mat-icon></button>
-      </div>
+    <table class="clientflow-table todo-table">
+      <thead>
+        <tr>
+          <th class="col-checkbox">
+            <mat-checkbox></mat-checkbox>
+          </th>
+          <th class="col-no">No</th>
+          <th class="col-urgent">Urgent</th>
+          <th class="col-requested">Requested by</th>
+          <th class="col-file">File no</th>
+          <th class="col-client">Client</th>
+          <th class="col-agent">Agent</th>
+          <th class="col-description">Description</th>
+          <th class="col-age">File age</th>
+          <th class="col-phoned">Phoned</th>
+          <th class="col-flag">Flag</th>
+          <th class="col-edit">Edit</th>
+        </tr>
+      </thead>
 
-      <!-- simple svg line chart placeholder -->
-      <div class="chart-area" role="img" aria-label="overview chart">
-        <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="lineChartType"> </canvas>
-      </div>
+      <tbody>
+        <tr *ngFor="let todo of todos; let i = index" [class.urgent-row]="todo.urgent">
+          <td class="col-checkbox">
+            <mat-checkbox [(ngModel)]="todo.selected"></mat-checkbox>
+          </td>
 
-      <div class="chart-footer">
-        <small>Overview for last 12 months</small>
-      </div>
-    </mat-card>
+          <td class="col-no">{{ i + 1 }}</td>
 
-    <div class="side-cards">
-      <mat-card class="mini-card" *ngFor="let m of miniCards" [style.border-left]="'4px solid ' + m.color">
-        <div class="mini-top">
-          <div class="mini-title">{{ m.title }}</div>
-          <div class="mini-value">{{ m.value }}</div>
-        </div>
-        <div class="mini-spark">
-          <!-- small visual indicator -->
-          <div class="spark" *ngFor="let p of m.spark" [style.height.%]="10 + p * 10"></div>
-        </div>
-      </mat-card>
-    </div>
-  </div>
+          <td class="col-urgent urgent-date">
+            {{ todo.urgentDate }}
+          </td>
 
-  <!-- LOWER ROW: three small cards + board list -->
-  <div class="lower-row">
-    <div class="small-cards">
-      <mat-card class="small-stat">
-        <div class="small-value">5,456</div>
-        <div class="small-label">Statistics</div>
-        <mat-divider></mat-divider>
-        <div class="small-note">Compared to last week</div>
-      </mat-card>
+          <td class="col-requested">{{ todo.requestedBy }}</td>
+          <td class="col-file link">{{ todo.fileNo }}</td>
+          <td class="col-client link">{{ todo.clientName }}</td>
+          <td class="col-agent link">{{ todo.agent }}</td>
 
-      <mat-card class="small-stat">
-        <div class="small-value">5,456</div>
-        <div class="small-label">Statistics</div>
-        <mat-divider></mat-divider>
-        <div class="small-note">Compared to last week</div>
-      </mat-card>
+          <td class="col-description">
+            {{ todo.description }}
+          </td>
 
-      <mat-card class="small-stat">
-        <div class="small-value">5,456</div>
-        <div class="small-label">Statistics</div>
-        <mat-divider></mat-divider>
-        <div class="small-note">Compared to last week</div>
-      </mat-card>
-    </div>
+          <td class="col-age">{{ todo.fileAgeDays }} days</td>
+          <td class="col-phoned">{{ todo.phonedDays }} days</td>
 
-    <!-- Board / To-do list -->
-    <mat-card class="board-card">
-      <div class="board-header">
-        <h3>Tasks & items</h3>
-        <button mat-flat-button color="primary" class="btn-small">New</button>
-      </div>
+          <td class="col-flag">🚩</td>
+          <td class="col-edit">✏️</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-expansion-panel>
 
-      <mat-list>
-        <mat-list-item *ngFor="let item of boardItems">
-          <div mat-line class="item-title">{{ item.title }}</div>
-          <div mat-line class="item-sub">
-            <span class="chip">{{ item.status }}</span>
-            <span class="when">{{ item.when }}</span>
-          </div>
-          <button mat-icon-button matTooltip="Open" aria-label="open"><mat-icon>open_in_new</mat-icon></button>
-        </mat-list-item>
-      </mat-list>
-    </mat-card>
-  </div>
-</div>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Files in Take-On ({{ takeOnFiles.length }}) </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <table class="clientflow-table">
+      <thead>
+        <tr>
+          <th>File no</th>
+          <th>
+            Initiated on
+            <span class="sort-arrow">↑</span>
+          </th>
+          <th>Client</th>
+          <th>ID Number</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- EMPTY STATE -->
+        <tr *ngIf="takeOnFiles.length === 0">
+          <td colspan="6" class="empty-state">No entries to display</td>
+        </tr>
+
+        <!-- FUTURE DATA -->
+        <tr *ngFor="let file of takeOnFiles">
+          <td class="link">{{ file.fileNo }}</td>
+          <td>{{ file.initiatedOn }}</td>
+          <td>{{ file.clientName }}</td>
+          <td>{{ file.idNumber }}</td>
+          <td>✏️</td>
+          <td *ngIf="canDelete()">🗑️</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> My Lists ({{ myLists.length }}) </mat-panel-title>
+
+      <span class="spacer"></span>
+
+      <!-- <button
+      mat-stroked-button
+      color="primary"
+      class="add-list-btn">
+      Add List
+    </button> -->
+    </mat-expansion-panel-header>
+
+    <table class="clientflow-table">
+      <thead>
+        <tr>
+          <th>
+            List Name
+            <span class="sort-arrow">↑</span>
+          </th>
+          <th>Description</th>
+          <th>List Owner</th>
+          <th>Type</th>
+          <th>Edit List</th>
+          <th>Copy List</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- EMPTY STATE -->
+        <tr *ngIf="myLists.length === 0">
+          <td colspan="7" class="empty-state">No entries to display</td>
+        </tr>
+
+        <!-- DATA -->
+        <tr *ngFor="let list of myLists">
+          <td class="link">{{ list.name }}</td>
+          <td>{{ list.description }}</td>
+          <td>{{ list.owner }}</td>
+          <td>{{ list.type }}</td>
+          <td class="icon-cell">✏️</td>
+          <td class="icon-cell">📄</td>
+          <td class="icon-cell">🗑️</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- FILES WAITING FOR VERIFICATION -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> FL Files waiting to be verified ({{ flFilesWaitingVerification.length }}) </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <table class="clientflow-table verify-table">
+      <!-- COLUMN LOCK (MOST IMPORTANT PART) -->
+      <colgroup>
+        <col class="col-file" />
+        <col class="col-name" />
+        <col class="col-registr" />
+        <col class="col-do" />
+        <col class="col-id" />
+        <col class="col-agent" />
+        <col class="col-company" />
+        <col class="col-v" />
+        <col class="col-v" />
+        <col class="col-status" />
+      </colgroup>
+
+      <thead>
+        <tr>
+          <th class="col-file">File no</th>
+          <th class="col-name">Name</th>
+          <th class="col-registr">Registr <span class="sort-arrow">↑</span></th>
+          <th class="col-do">D/O</th>
+          <th class="col-id">ID No</th>
+          <th class="col-agent">Agent</th>
+          <th class="col-company">Company</th>
+          <th class="col-v">V Details</th>
+          <th class="col-v">V Pmts</th>
+          <th class="col-status"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let file of flFilesWaitingVerification">
+          <td class="col-file link">{{ file.fileNo }}</td>
+          <td class="col-name link">{{ file.name }}</td>
+          <td class="col-registr">{{ file.registeredOn }}</td>
+          <td class="col-do">{{ file.do }}</td>
+          <td class="col-id">{{ file.idNo }}</td>
+          <td class="col-agent">{{ file.agent }}</td>
+          <td class="col-company">{{ file.company }}</td>
+          <td class="col-v link">V Details</td>
+          <td class="col-v link">V Pmts</td>
+
+          <td class="col-status">
+            <span *ngIf="file.status === 'APPROVED'" class="status approved" title="Verified"> ✔ </span>
+
+            <span *ngIf="file.status === 'REJECTED'" class="status rejected" title="Rejected"> ✖ </span>
+
+            <span *ngIf="file.status === 'PENDING'" class="status pending" title="Pending"> ⏳ </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-expansion-panel>
+</mat-accordion>

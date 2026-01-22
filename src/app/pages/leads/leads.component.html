@@ -1,10 +1,123 @@
-<mat-card class="toolbar-card under-dev-card">
-  <div class="under-dev">
-    <mat-icon class="under-dev__icon">construction</mat-icon>
+<div class="card">
+  <div class="page-header">
+    <h2 class="page-title">Leads Management FinLaw SA</h2>
 
-    <div class="under-dev__text">
-      <h3>Section Under Development</h3>
-      <p>This module is currently being built and will be available soon.</p>
+    <div class="page-actions">
+      <button mat-stroked-button color="primary" class="success-btn" (click)="addLeadManually()">
+        <mat-icon>add</mat-icon>
+        Add Manually
+      </button>
+
+      <button mat-stroked-button color="primary" class="success-btn" (click)="importLeads()">
+        <mat-icon>upload_file</mat-icon>
+        Import Leads
+      </button>
     </div>
   </div>
-</mat-card>
+
+  <!-- TOOLBAR -->
+  <div class="table-toolbar">
+    <span class="title">Leads</span>
+
+    <div class="toolbar-actions">
+      <button mat-stroked-button (click)="showFilter = true"><mat-icon>filter_alt</mat-icon> Filter</button>
+
+      <button mat-stroked-button (click)="showExport = true"><mat-icon>download</mat-icon> Export</button>
+
+      <button mat-stroked-button color="warn" [disabled]="!selectedLeads.length"><mat-icon>delete</mat-icon> Delete</button>
+
+      <button mat-raised-button color="primary" [disabled]="!selectedLeads.length"><mat-icon>person_add</mat-icon> Allocate</button>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <table class="zebra">
+    <thead>
+      <tr>
+        <th><input type="checkbox" [(ngModel)]="selectAll" (change)="toggleSelectAll()" /></th>
+
+        <th (click)="sort('timeReceived')">Time Received</th>
+        <th (click)="sort('franchise')">Franchise</th>
+        <th (click)="sort('name')">Name</th>
+        <th (click)="sort('cell')">Cell</th>
+        <th (click)="sort('idNumber')">ID Number</th>
+        <th (click)="sort('affiliate')">Affiliate</th>
+        <th>Message</th>
+        <th>Allocated to</th>
+        <th>Lead Outcome</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let lead of pagedLeads; let i = index">
+        <td>
+          <input type="checkbox" [(ngModel)]="lead.selected" (change)="toggleRow()" />
+        </td>
+        <td>{{ lead.timeReceived }}</td>
+        <td>{{ lead.franchise }}</td>
+        <td>{{ lead.name }}</td>
+        <td>{{ lead.cell }}</td>
+        <td>{{ lead.idNumber }}</td>
+        <td>{{ lead.affiliate }}</td>
+        <td>{{ lead.message }}</td>
+        <td>{{ lead.allocatedTo }}</td>
+        <td>{{ lead.outcome }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PAGINATION -->
+  <div class="pagination">
+    <button mat-icon-button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <span *ngFor="let p of [].constructor(totalPages); let i = index">
+      <button mat-button (click)="changePage(i + 1)" [class.active]="currentPage === i + 1">
+        {{ i + 1 }}
+      </button>
+    </span>
+
+    <button mat-icon-button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>
+
+<!-- FILTER MODAL -->
+<div class="modal-backdrop" *ngIf="showFilter">
+  <div class="modal">
+    <h3>Filter</h3>
+
+    <select [(ngModel)]="filterColumn">
+      <option value="">Select column</option>
+      <option value="name">Name</option>
+      <option value="cell">Cell</option>
+      <option value="affiliate">Affiliate</option>
+    </select>
+
+    <input [(ngModel)]="filterValue" placeholder="Filter value" />
+
+    <div class="modal-actions">
+      <button mat-button (click)="clearFilter()">Clear</button>
+      <button mat-raised-button color="primary" (click)="applyFilter()">Apply</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXPORT MODAL -->
+<div class="modal-backdrop" *ngIf="showExport">
+  <div class="modal">
+    <h3>Export</h3>
+    <p>Select output format</p>
+
+    <select>
+      <option>Excel</option>
+    </select>
+
+    <div class="modal-actions">
+      <button mat-button (click)="showExport = false">Cancel</button>
+      <button mat-raised-button color="primary" (click)="export()">Export</button>
+    </div>
+  </div>
+</div>

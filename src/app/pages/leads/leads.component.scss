@@ -1,31 +1,159 @@
-/* Under development notice */
-.under-dev-card {
-  padding: 1.4rem 1.8rem;
-  background: linear-gradient(180deg, #ffffff, #f7fafb);
-  border-left: 4px solid #135569;
-  border-radius: 10px;
+.page {
+  padding: 20px;
+  background: #eef2f5;
 }
 
-.under-dev {
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.actions button {
+  margin-left: 8px;
+}
+
+.tabs {
+  margin: 16px 0;
+}
+
+.tabs button {
+  margin-right: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.tabs .active {
+  background: #222;
+  color: white;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.toolbar-actions button {
+  margin-left: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #e0e0e0;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  font-size: 13px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
 }
 
-.under-dev__icon {
-  font-size: 36px;
-  color: #135569;
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 360px;
 }
 
-.under-dev__text h3 {
+.modal-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-actions button {
+  margin-left: 10px;
+}
+
+.primary {
+  background: #3cb371;
+  color: white;
+}
+.zebra tbody tr:nth-child(even) {
+  background: #f6f6f6;
+}
+
+th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.toolbar-actions button {
+  margin-left: 6px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.pagination button.active {
+  background: #1976d2;
+  color: white;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.page-title {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: #135569;
 }
 
-.under-dev__text p {
-  margin: 2px 0 0 0;
-  font-size: 14px;
-  color: #457580;
+.page-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Green success-style buttons */
+.success-btn {
+  border-color: #4caf50 !important;
+  color: #4caf50 !important;
+
+  mat-icon {
+    margin-right: 6px;
+    font-size: 18px;
+  }
 }

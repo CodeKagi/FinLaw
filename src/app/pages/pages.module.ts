@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { NgChartsModule } from 'ng2-charts';
 
@@ -75,6 +76,7 @@ import { FormsModule } from '@angular/forms';
     // charts
     NgChartsModule,
     FormsModule,
+    MatExpansionModule,
   ],
 })
 export class PagesModule {}
