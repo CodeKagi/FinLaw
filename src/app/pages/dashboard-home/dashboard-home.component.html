@@ -1,3 +1,13 @@
+<div class="global-search-container">
+  <div class="global-search">
+    <mat-icon class="search-icon">search</mat-icon>
+
+    <input type="text" class="search-input" placeholder="Search by File Number, File Name, ID Number or Cell Number" [(ngModel)]="globalSearchValue" />
+
+    <button class="search-btn" (click)="onGlobalSearch()">Search</button>
+  </div>
+</div>
+
 <mat-accordion multi="true">
   <!-- MY TODO LIST (OPEN BY DEFAULT) -->
   <mat-expansion-panel [expanded]="true">

@@ -93,6 +93,7 @@ export class DashboardHomeComponent implements OnInit {
   todos: TodoItem[] = [];
   filesWaitingVerification: FileItem[] = [];
   takeOnFiles: any[] = [];
+  globalSearchValue = '';
   myLists = [
     {
       name: 'property',
@@ -144,5 +145,17 @@ export class DashboardHomeComponent implements OnInit {
 
   canDelete(): boolean {
     return this.userRole === 'ADMIN';
+  }
+
+  onGlobalSearch(): void {
+    if (!this.globalSearchValue.trim()) {
+      return;
+    }
+
+    // 🔹 For now just log
+    console.log('Searching for:', this.globalSearchValue);
+
+    // 🔹 Later:
+    // this.dashboardService.search(this.globalSearchValue)
   }
 }
